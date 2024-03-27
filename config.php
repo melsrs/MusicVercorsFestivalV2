@@ -10,6 +10,9 @@ define('ERROR_DB', 20);
 define('ERROR_PASSWORD', 21);
 
 
+
+
+
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'vercorsfestival');
 define('DB_USER', 'vercorsFestival');
