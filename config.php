@@ -8,3 +8,9 @@ define('ERROR_PHONE', 5);
 define('ERROR_ADDRESS', 6);
 define('ERROR_DB', 20);
 define('ERROR_PASSWORD', 21);
+
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'vercorsFestival');
+define('DB_USER', 'vercorsFestival');
+define('DB_PWD', 'vercors');
+define('PREFIXE', 'ver_');
