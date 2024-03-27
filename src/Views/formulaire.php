@@ -2,7 +2,7 @@
 
     <?php
 
-    include './includes/header.php';
+    include __DIR__. '/Views/includes/header.php';
 
     ?>
 

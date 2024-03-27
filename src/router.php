@@ -13,7 +13,7 @@ $methode = $_SERVER['REQUEST_METHOD'];
 // header("location: ".HOME_URL);
 switch ($route) {
     case HOME_URL:
-        echo "je suis sur l'accueil";
+        $HomeController->index();
         break;
 }
 
