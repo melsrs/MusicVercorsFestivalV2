@@ -1,5 +1,5 @@
 body {
-    background-image:url('images/1a669234843a563b2b6b977034b409f684fbad0c.jpeg');
+    background-image:url('../images/fond.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     font-family: "PT Sans Narrow", sans-serif;
@@ -8,6 +8,10 @@ body {
     height: 100vh;
     background-attachment: fixed;
     background-position: center;
+}
+
+img {
+    cursor: pointer;
 }
 
 @keyframes animation{
@@ -24,9 +28,37 @@ header {
     justify-content: space-around;
     align-items: center;
 
-    .bouton {
-        margin: 5%;
-    }
+}
+
+.boutonConnexion {
+  margin: 5%;  
+  align-items: center;
+  background-color: white;
+  border: 1.5px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  font-size: 16px;
+  font-style: normal;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  line-height: 24px;
+  width: 15%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  font-weight: 700;
+}
+
+.boutonDeconnexion{
+    margin: 5%;
+}
+.boutonTableauBord{
+    margin: 5%;
 }
 
 #logo {

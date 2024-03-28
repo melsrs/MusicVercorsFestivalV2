@@ -17,7 +17,9 @@ class HomeController
       $erreur = '';
     }
 
-    $this->render("Accueil", ["erreur"=> $erreur]);
+    $this->render("formulaire", ["erreur"=> $erreur]);
+
+    // $this->render("formulaire");
   }
 
   public function auth(string $password): void

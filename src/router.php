@@ -1,17 +1,24 @@
 <?php
 
 use src\Controllers\HomeController;
+use src\Services\Routing;
 
 $HomeController = new HomeController;
 
 $route = $_SERVER['REDIRECT_URL'];
 $methode = $_SERVER['REQUEST_METHOD'];
 
+$routeComposee = Routing::routeComposee($route);
+
 // header("location: ".HOME_URL);
 switch ($route) {
     case HOME_URL:
-        echo "je suis sur l'accueil";
+        $HomeController->index();
         break;
+
+        default:
+    $HomeController->page404();
+    break;
 }
 
 
