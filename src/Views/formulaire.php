@@ -1,11 +1,13 @@
+<?php
+$errorCode = null;
+if(isset($_GET['error'])) {
+  $errorCode = (int) $_GET['error'];
+}
+
+include_once __DIR__. '/Views/includes/header.php';
+?>
+
 <body>
-
-    <?php
-
-    include __DIR__. '/Views/includes/header.php';
-
-    ?>
-
     <form onsubmit="return finalCheck(event)" action="./src/traitement.php" id="inscription" method="POST">
         <fieldset id="reservation">
             <legend>Réservation</legend>
