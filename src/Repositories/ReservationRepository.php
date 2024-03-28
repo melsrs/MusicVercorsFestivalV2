@@ -77,12 +77,13 @@ class ReservationRepository {
 
     public function deleteThisReservation(int $ID): bool {
       try{
-      $sql = "DELETE FROM " . PREFIXE . "relations_films_categories WHERE ID_CATEGORIES = :ID;
-              DELETE FROM " . PREFIXE . "categories WHERE ID = :ID;";
+      $sql = "DELETE FROM " . PREFIXE . "date_nuit_int WHERE id_reservation = :id_reservation;
+              DELETE FROM " . PREFIXE . "date_pass_int WHERE id_reservation = :id_reservation;
+              DELETE FROM " . PREFIXE . "reservation WHERE id_reservation = :id_reservation;";
   
       $statement = $this->DB->prepare($sql);
   
-      return $statement->execute([':ID' => $ID]);
+      return $statement->execute([':id_reservation' => $id_reservation]);
   
       } catch(PDOException $error) {
         echo "Erreur de suppression : " . $error->getMessage();
