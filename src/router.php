@@ -2,6 +2,8 @@
 
 use src\Controllers\HomeController;
 use src\Services\Routing;
+use src\Repositories\ReservationRepository;
+use src\Models\Reservation;
 
 $HomeController = new HomeController;
 
@@ -15,6 +17,11 @@ switch ($route) {
     case HOME_URL:
         $HomeController->index();
         break;
+
+        case HOME_URL.'test':
+            $Reservation = new ReservationRepository();
+             var_dump($Reservation->getAllReservations());
+
 
         default:
     $HomeController->page404();

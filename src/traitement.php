@@ -180,25 +180,25 @@ $newReservation = new Reservation(
     $emplacementVan
 );
 
-$DB = new Database();
-$retour = $DB->saveReservation($newReservation);
+// $DB = new Database();
+// $retour = $DB->saveReservation($newReservation);
 
-if ($retour) {
-    header('location:../receipt.php?nom=' . $newReservation->getNom() 
-    . '&prenom=' . $newReservation->getPrenom()
-    . '&nbPersonnes=' . $newReservation->getNbPersonnes()
-    . '&prixTotal=' . $newReservation->getPrixTotal()
-    . '&date=' . $newReservation->getDate()
-    . '&nbCasquesEnfants=' . $newReservation->getNbCasquesEnfants()
-    . '&nbLugesEte=' . $newReservation->getNbLugesEte()
-    . '&tente=' . $newReservation->getTente()
-    . '&van=' . $newReservation->getVan()
-    );
-    die;
+// if ($retour) {
+//     header('location:../receipt.php?nom=' . $newReservation->getNom() 
+//     . '&prenom=' . $newReservation->getPrenom()
+//     . '&nbPersonnes=' . $newReservation->getNbPersonnes()
+//     . '&prixTotal=' . $newReservation->getPrixTotal()
+//     . '&date=' . $newReservation->getDate()
+//     . '&nbCasquesEnfants=' . $newReservation->getNbCasquesEnfants()
+//     . '&nbLugesEte=' . $newReservation->getNbLugesEte()
+//     . '&tente=' . $newReservation->getTente()
+//     . '&van=' . $newReservation->getVan()
+//     );
+//     die;
 
-} else {
-    header('location:../index.php?error='.ERROR_DB);
-}
+// } else {
+//     header('location:../index.php?error='.ERROR_DB);
+// }
 
 ?>
 
