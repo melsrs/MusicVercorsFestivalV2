@@ -3,6 +3,7 @@
 use src\Controllers\HomeController;
 use src\Services\Routing;
 use src\Repositories\ReservationRepository;
+use src\Models\Reservation;
 
 $HomeController = new HomeController;
 
@@ -18,15 +19,15 @@ $routeComposee = Routing::routeComposee($route);
 //         $HomeController->index();
 //         break;
 
-//     case HOME_URL.'test':
-//         $reservations = new ReservationRepository();
-//         var_dump($Reservation->getReservationID());
- 
+        case HOME_URL.'test':
+            $Reservation = new ReservationRepository();
+             var_dump($Reservation->getAllReservations());
 
-//         default:
-//     $HomeController->page404();
-//     break;
-// }
+
+        default:
+    $HomeController->page404();
+    break;
+}
 
 
 

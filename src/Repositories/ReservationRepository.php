@@ -18,7 +18,7 @@ class ReservationRepository {
   }
 
   public function getAllReservations(){
-    $sql = "SELECT * FROM ".PREFIXE."ver_reservation;";
+    $sql = "SELECT * FROM ".PREFIXE."reservation;";
 
     $retour = $this->DB->query($sql)->fetchAll(PDO::FETCH_CLASS, Reservation::class);
 
@@ -26,7 +26,7 @@ class ReservationRepository {
   }
 
   public function getThisReservationById(int $id_reservation): Reservation|bool {
-    $sql = "SELECT * FROM ".PREFIXE."ver_reservation WHERE id_reservation = :id_reservation";
+    $sql = "SELECT * FROM ".PREFIXE."reservation WHERE id_reservation = :id_reservation";
 
     $statement = $this->DB->prepare($sql);
     $statement->bindParam(':id_reservation', $id_reservation);
@@ -39,7 +39,7 @@ class ReservationRepository {
 
 
   public function CreateThisReservation(Reservation $Reservation): bool{
-    $sql = "INSERT INTO ". PREFIXE . "ver_reservation (id_reservation, nombre_resa, prix_total, id_user) VALUES (:id_reservation, :nombre_resa, :prix_total, :id_user)";
+    $sql = "INSERT INTO ". PREFIXE . "reservation (id_reservation, nombre_resa, prix_total, id_user) VALUES (:id_reservation, :nombre_resa, :prix_total, :id_user)";
 
     $statement = $this->DB->prepare($sql);
 
@@ -55,7 +55,7 @@ class ReservationRepository {
   }
 
   public function UpdateThisReservation(Reservation $Reservation): bool{
-    $sql = "UPDATE ". PREFIXE . "ver_reservation
+    $sql = "UPDATE ". PREFIXE . "reservation
             SET
               id_reservation = :id_reservation,
               nombre_resa = :nombre_resa,
@@ -77,12 +77,13 @@ class ReservationRepository {
 
     public function deleteThisReservation(int $ID): bool {
       try{
-      $sql = "DELETE FROM " . PREFIXE . "relations_films_categories WHERE ID_CATEGORIES = :ID;
-              DELETE FROM " . PREFIXE . "categories WHERE ID = :ID;";
+      $sql = "DELETE FROM " . PREFIXE . "date_nuit_int WHERE id_reservation = :id_reservation;
+              DELETE FROM " . PREFIXE . "date_pass_int WHERE id_reservation = :id_reservation;
+              DELETE FROM " . PREFIXE . "reservation WHERE id_reservation = :id_reservation;";
   
       $statement = $this->DB->prepare($sql);
   
-      return $statement->execute([':ID' => $ID]);
+      return $statement->execute([':id_reservation' => $id_reservation]);
   
       } catch(PDOException $error) {
         echo "Erreur de suppression : " . $error->getMessage();
