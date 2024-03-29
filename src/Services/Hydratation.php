@@ -14,19 +14,35 @@ trait Hydratation
     $this->hydrate([$name => $value]);
   }
 
+  // private function hydrate(array $data): void
+  // {
+  //   $setter = "set";
+  //   foreach ($data as $key => $value) {
+  //     $parts = explode("_", $key);
+  //     foreach ($parts as $part) {
+  //       $part = strtolower($part);
+  //       $part = ucfirst($part);
+  //       $setter .= $part;
+  //     }
+  //     $this->$setter($value);
+  //   }
+  // }
+
   private function hydrate(array $data): void
-  {
-    $setter = "set";
+{
     foreach ($data as $key => $value) {
-      $parts = explode("_", $key);
-      foreach ($parts as $part) {
-        $part = strtolower($part);
-        $part = ucfirst($part);
-        $setter .= $part;
-      }
-      $this->$setter($value);
+        $setter = "set";
+        $parts = explode("_", $key);
+        foreach ($parts as $part) {
+            $part = ucfirst(strtolower($part));
+            $setter .= $part;
+            var_dump($setter);
+        }
+        if (method_exists($this, $setter)) {
+            $this->$setter($value);
+        }
     }
-  }
+}
 
   public function __serialize(): array
   {

@@ -1,34 +1,45 @@
 <?php
 
 use src\Controllers\HomeController;
+use src\Controllers\ReservationController;
 use src\Services\Routing;
 use src\Repositories\ReservationRepository;
 use src\Models\Reservation;
 
-$HomeController = new HomeController;
 
+$ReservationController = new ReservationController;
+$HomeController = new HomeController;
 
 $route = $_SERVER['REDIRECT_URL'];
 $methode = $_SERVER['REQUEST_METHOD'];
 
 $routeComposee = Routing::routeComposee($route);
 
-// header("location: ".HOME_URL);
-// switch ($route) {
-//     case HOME_URL:
-//         $HomeController->index();
-//         break;
 
-        case HOME_URL.'test':
-            $Reservation = new ReservationRepository();
-             var_dump($Reservation->getAllReservations());
-
+switch ($route) {
+    case HOME_URL:
+        $HomeController->index();
+        break;
+    
+    case HOME_URL.'Reserver':
+        if ($methode === "POST") {
+        //     $data = $_POST;
+        //     header('location: '.HOME_URL.'dashboard');
+        $ReservationController->save($_POST);
+        echo'je suis dans dashboard';
+        var_dump($_POST);
+        }
+        break;
 
         default:
-    $HomeController->page404();
+    // $HomeController->page404();
     break;
 }
 
+
+// case HOME_URL.'test':
+//     $Reservation = new ReservationRepository();
+//      var_dump($Reservation->getAllReservations());
 
 
 // switch ($route) {
@@ -42,7 +53,7 @@ $routeComposee = Routing::routeComposee($route);
 //         }
 //         break;
 //     case HOME_URL.'test':
-//            $reservation = new ReservationRepository();
+//            $AllUsers= new ReservationRepository();
 //             var_dump($Reservation->getReservationID());
 
 //     default:

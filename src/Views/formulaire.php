@@ -11,7 +11,7 @@ include_once __DIR__ . '/includes/header.php';
 ?>
 
 
-    <form onsubmit="return finalCheck(event)" action="../Controllers/ReservationController.php" id="inscription" method="POST">
+    <form onsubmit="return finalCheck(event)" action="/Reserver" id="inscription" method="POST">
         <fieldset id="reservation">
             <legend>Réservation</legend>
             <h3>Nombre de réservation(s) :</h3>
