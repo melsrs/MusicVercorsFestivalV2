@@ -2,8 +2,10 @@
 
 use src\Controllers\HomeController;
 use src\Services\Routing;
+use src\Repositories\ReservationRepository;
 
 $HomeController = new HomeController;
+
 
 $route = $_SERVER['REDIRECT_URL'];
 $methode = $_SERVER['REQUEST_METHOD'];
@@ -11,15 +13,20 @@ $methode = $_SERVER['REQUEST_METHOD'];
 $routeComposee = Routing::routeComposee($route);
 
 // header("location: ".HOME_URL);
-switch ($route) {
-    case HOME_URL:
-        $HomeController->index();
-        break;
+// switch ($route) {
+//     case HOME_URL:
+//         $HomeController->index();
+//         break;
 
-        default:
-    $HomeController->page404();
-    break;
-}
+//     case HOME_URL.'test':
+//         $reservations = new ReservationRepository();
+//         var_dump($Reservation->getReservationID());
+ 
+
+//         default:
+//     $HomeController->page404();
+//     break;
+// }
 
 
 
@@ -34,7 +41,7 @@ switch ($route) {
 //         }
 //         break;
 //     case HOME_URL.'test':
-//            $AllUsers= new ReservationRepository();
+//            $reservation = new ReservationRepository();
 //             var_dump($Reservation->getReservationID());
 
 //     default:
