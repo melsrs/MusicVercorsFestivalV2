@@ -52,6 +52,7 @@ class ReservationRepository {
     ]);
 
     return $retour;
+    // return $this->DB->lastInsertId();
   }
 
   public function UpdateThisReservation(Reservation $Reservation): bool{
@@ -75,19 +76,19 @@ class ReservationRepository {
     return $retour;
   }
 
-    public function deleteThisReservation(int $ID): bool {
-      try{
-      $sql = "DELETE FROM " . PREFIXE . "date_nuit_int WHERE id_reservation = :id_reservation;
-              DELETE FROM " . PREFIXE . "date_pass_int WHERE id_reservation = :id_reservation;
-              DELETE FROM " . PREFIXE . "reservation WHERE id_reservation = :id_reservation;";
+    // public function deleteThisReservation(int $ID): bool {
+    //   try{
+    //   $sql = "DELETE FROM " . PREFIXE . "date_nuit_int WHERE id_reservation = :id_reservation;
+    //           DELETE FROM " . PREFIXE . "date_pass_int WHERE id_reservation = :id_reservation;
+    //           DELETE FROM " . PREFIXE . "reservation WHERE id_reservation = :id_reservation;";
   
-      $statement = $this->DB->prepare($sql);
+    //   $statement = $this->DB->prepare($sql);
   
-      return $statement->execute([':id_reservation' => $id_reservation]);
+    //   return $statement->execute([':id_reservation' => $id_reservation]);
   
-      } catch(PDOException $error) {
-        echo "Erreur de suppression : " . $error->getMessage();
-        return FALSE;
-      }
-    }
+    //   } catch(PDOException $error) {
+    //     echo "Erreur de suppression : " . $error->getMessage();
+    //     return FALSE;
+    //   }
+    // }
 }
