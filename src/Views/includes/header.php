@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-    <img src="<?= HOME_URL ?>assets/images/vercorsLogo.png" id="logo" alt="Vercors_Music_Festival_Logo" onclick="location.href='./index.php'">
+    <img src="<?= HOME_URL ?>assets/images/vercorsLogo.png" id="logo" alt="Vercors_Music_Festival_Logo" onclick="location.href='<?= HOME_URL ?>'">
 
     <?php
     
@@ -28,7 +28,7 @@
         </div>
     <?php } else { ?>
         <div id='connexion' class="boutonConnexion">
-            <a href="./connexion.php">Connexion</a>
+            <a href="connexion">Connexion</a>
         </div>
     <?php } ?>
 </header>

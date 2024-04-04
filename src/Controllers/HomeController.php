@@ -24,7 +24,7 @@ class HomeController
 
   public function auth(string $password): void
   {
-    if ($password === 'admin') {
+    if ($password === 'vercors') {
       $_SESSION['connecté'] = TRUE;
       header('location: '.HOME_URL.'dashboard');
       die();
