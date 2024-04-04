@@ -12,23 +12,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
     <title>Formulaire de réservation Music Vercors Festival</title>
 </head>
-<body>
-<header>
-    <img src="<?= HOME_URL ?>assets/images/vercorsLogo.png" id="logo" alt="Vercors_Music_Festival_Logo" onclick="location.href='./index.php'">
 
-    <?php
-    
-    if (isset($_SESSION['connected'])) {
-    ?> 
-        <div id='dashboard' class="boutonTableauBord">
-            <a href="./dashboard.php">Tableau de bord</a>
-        </div>
-        <div id='deconnexion' class="boutonDeconnexion">
-            <a href="./src/deconnexion.php">Deconnexion</a>
-        </div>
-    <?php } else { ?>
-        <div id='connexion' class="boutonConnexion">
-            <a href="./connexion.php">Connexion</a>
-        </div>
-    <?php } ?>
-</header>
+<body>
+    <header>
+        <img src="<?= HOME_URL ?>assets/images/vercorsLogo.png" id="logo" alt="Vercors_Music_Festival_Logo" onclick="location.href='./index.php'">
+
+        <?php
+
+        if (isset($_SESSION['connected'])) {
+        ?>
+            <div id='dashboard' class="boutonTableauBord">
+                <a href="./dashboard.php">Tableau de bord</a>
+            </div>
+            <div id='deconnexion' class="boutonDeconnexion">
+                <a href="./src/deconnexion.php">Deconnexion</a>
+            </div>
+        <?php } else { ?>
+            <div id='connexion' class="boutonConnexion">
+                <a href="connexion">Connexion</a>
+            </div>
+            <div id='connexion' class="boutonConnexion">
+                <a href="connexion">Admin</a>
+            </div>
+        <?php } ?>
+    </header>

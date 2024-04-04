@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     require_once './config.php';
 
     if (isset($_POST['soumission'])) {
@@ -18,4 +18,4 @@
         header('location:../connexion.php?error='.ERROR_PASSWORD);
         exit;
     }
-?>
+?> -->
