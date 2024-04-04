@@ -25,7 +25,7 @@ class ReservationRepository {
     return $retour;
   }
 
-  public function getThisReservationById(int $id_reservation): Reservation|bool {
+  public function getThisReservationById(int $id_reservation): Reservation {
     $sql = "SELECT * FROM ".PREFIXE."reservation WHERE id_reservation = :id_reservation";
 
     $statement = $this->DB->prepare($sql);
@@ -38,21 +38,23 @@ class ReservationRepository {
   }
 
 
-  public function CreateThisReservation(Reservation $Reservation): bool{
-    $sql = "INSERT INTO ". PREFIXE . "reservation (id_reservation, nombre_resa, prix_total, id_user) VALUES (:id_reservation, :nombre_resa, :prix_total, :id_user)";
+  public function CreateThisReservation($newResa)
+  {
+    $sql = "INSERT INTO ". PREFIXE . "reservation (nombre_resa, prix_total, id_user) VALUES (:nombre_resa, :prix_total, :id_user)";
 
     $statement = $this->DB->prepare($sql);
 
-    $retour = $statement->execute([
-      ':id_reservation' => $Reservation->getIdReservation(),
-      ':nombre_resa' => $Reservation->getNombreResa(),
-      ':prix_total' => $Reservation->getPrixTotal(),
-      ':id_user' => $Reservation->getIdUser()
+    $statement->execute([
+      ':nombre_resa' => $newResa->getNombreResa(),
+      ':prix_total' => $newResa->getPrixTotal(),
+      ':id_user' => $newResa->getIdUser()
 
     ]);
 
-    return $retour;
-    // return $this->DB->lastInsertId();
+    return $this->DB->lastInsertId();
+    $newResa->setIdReservation($id);
+
+    return $newResa;
   }
 
   public function UpdateThisReservation(Reservation $Reservation): bool{
@@ -76,19 +78,19 @@ class ReservationRepository {
     return $retour;
   }
 
-    // public function deleteThisReservation(int $ID): bool {
-    //   try{
-    //   $sql = "DELETE FROM " . PREFIXE . "date_nuit_int WHERE id_reservation = :id_reservation;
-    //           DELETE FROM " . PREFIXE . "date_pass_int WHERE id_reservation = :id_reservation;
-    //           DELETE FROM " . PREFIXE . "reservation WHERE id_reservation = :id_reservation;";
+    public function deleteThisReservation(int $id_reservation): bool {
+      try{
+      $sql = "DELETE FROM " . PREFIXE . "date_nuit_int WHERE id_reservation = :id_reservation;
+              DELETE FROM " . PREFIXE . "date_pass_int WHERE id_reservation = :id_reservation;
+              DELETE FROM " . PREFIXE . "reservation WHERE id_reservation = :id_reservation;";
   
-    //   $statement = $this->DB->prepare($sql);
+      $statement = $this->DB->prepare($sql);
   
-    //   return $statement->execute([':id_reservation' => $id_reservation]);
+      return $statement->execute([':id_reservation' => $id_reservation]);
   
-    //   } catch(PDOException $error) {
-    //     echo "Erreur de suppression : " . $error->getMessage();
-    //     return FALSE;
-    //   }
-    // }
+      } catch(PDOException $error) {
+        echo "Erreur de suppression : " . $error->getMessage();
+        return FALSE;
+      }
+    }
 }

@@ -23,59 +23,48 @@ class ReservationController
         $reservations = $this->ReservationRepo->getAllReservations();
         $this->render("Dashboard", ['reservations' => $reservations]);
     }
-
-    //   public function show($id)
-    //   {
-    //     $film = $this->FilmRepo->getThisFilmById($id);
-    //     $this->render('Dashboard', ['section' => 'films', 'action' => 'details', 'film' => $film]);
-    //   }
-
-    //   public function edit($id)
-    //   {
-    //     $film = $this->FilmRepo->getThisFilmById($id);
-    //     $categories = $this->CategoryRepo->getAllCategories();
-    //     $classifications = $this->ClassificationRepo->getAllClassifications();
-    //     $this->render('Dashboard', ['section' => 'films', 'action' => 'edit', 'film' => $film, 'categories' => $categories, 'classifications' => $classifications]);
-    //   }
-
-    //   public function new()
-    //   {
-    //     $categories = $this->CategoryRepo->getAllCategories();
-    //     $classifications = $this->ClassificationRepo->getAllClassifications();
-    //     $this->render('Dashboard', ['section' => 'films', 'action' => 'new', 'categories' => $categories, 'classifications' => $classifications]);
-    //   }
+   
 
         public function save($data) {
+        
+        // var_dump($this->ReservationRepo);
+        // var_dump($_POST['nombrePlaces']);
+        
 //             if (
 //                 !empty($_POST) &&
-//                 isset($_POST['id_reservation']) &&
-//                 isset($_POST['nombre_resa']) &&
+//                 isset($_POST['nombrePlaces']) &&
 //                 isset($_POST['prix_total']) &&
 //                 isset($_POST['id_user']) 
                
 //             ) {
-//                 $id_reservation = htmlspecialchars($_POST['id_reservation']);
-//                 $nombre_resa = htmlspecialchars($_POST['nombre_resa']);
+//                 $nombrePlaces = htmlspecialchars($_POST['nombrePlaces']);
 //                 $prix_total = htmlspecialchars($_POST['prix_total']);
 //                 $id_user = htmlspecialchars($_POST['id_user']);
         
-
+                
         
 //         $newResa = new Reservation(
             
-//             $id_reservation,
-//             $nombre_resa,
+//             null,
+//             $nombrePlaces,
 //             $prix_total,
 //             $id_user
-           
+
+            
+        
 //         );
+//         var_dump($nombrePlaces);
+//         // $ReservationRepo = new ReservationRepository();
+        
       
-//         $ReservationRepository = new ReservationRepository();
-      
-//         $ReservationId = $ReservationRepository->CreateThisReservation($newResa);
+//         $resaId = $this->ReservationRepo->CreateThisReservation($newResa);
+        
+//         var_dump('hello');
 //     }
 // }
-// }
+    
+
+
 
       
         foreach ($data as $key => $value) {
@@ -85,72 +74,44 @@ class ReservationController
                 $data[$key] = htmlspecialchars($value);
             }
         }
-        $reservation = new Reservation();
-        $reservation->setNombreResa($data['nombrePlaces']);
-        $reservation->setIdReservation($data['passSelection']);
-        $reservation->setPrixTotal($data['enfants']);
-        $reservation->setIdUser($data['email']);
+        $newResa = new Reservation(
+            null, 
+            $nombre_resa,
+            $prix_total,
+            $id_user
+        );
 
 
+        $newResa->setNombreResa($data['nombrePlaces']);
+        $newResa->setIdReservation($data['null']);
+        $newResa->setPrixTotal($data['null']);
+        $newResa->setIdUser($data['null']);
 
+var_dump($newResa);
+        $ReservationRepo = new ReservationRepository();
 
-        var_dump($data);
-        var_dump($reservation);
-
-        if (isset($data['id_reservation']) && !empty($data['id_reservation'])) {
-            $reservation->setIdReservation($data['id_reservation']);
-        } else {
-            $reservation->setIdReservation([]);
-        }
-        var_dump('hello');
-        if (
-            !empty($reservation->getIdReservation()) &&
-            !empty($reservation->getNombreResa()) &&
-            !empty($reservation->getPrixTotal()) &&
-            !empty($reservation->getIdUser())
-        ) {
-        
-            //   if ($id !== null) {
-            //     $film->setId($id);
-            //     $this->FilmRepo->updateThisFilm($film);
-
-            //     $this->FilmRepo->removeFilmToCategories($film);
-            //     $this->FilmRepo->addFilmToCategories($film);
-
-            //   } else {
-                // var_dump('hello2');
-            $reservation = $this->ReservationRepo->CreateThisReservation($reservation);
+        $reservationId = $ReservationRepo->CreateThisReservation($newResa);
+        echo($reservationId);
+}
         }
 
-            // header('location: /dashboard/' .$reservation->getIdReservation());
-            // die;
+//         // if (isset($data['id_reservation']) && !empty($data['id_reservation'])) {
+//         //     $reservation->setIdReservation($data['id_reservation']);
+      
+//             // $reservation->setIdReservation([]);
+//         // }
+//         var_dump('hello');
+//         // if (
+//         //     !empty($reservation->getIdReservation()) &&
+//         //     !empty($reservation->getNombreResa()) &&
+//         //     !empty($reservation->getPrixTotal()) &&
+//         //     !empty($reservation->getIdUser())
+//         // ) {
 
+//             //   } else {
+//                 // var_dump('hello2');
+//             // $reservation = $this->ReservationRepo->CreateThisReservation($reservation);
+//         }
+//     }
+// // }
 
-        }
-    }
-
-
-    //   }
-    //   header('location: /dashboard/films/details/' . $film->getId());
-    //   die;
-    // }else {
-    //   $categories = $this->CategoryRepo->getAllCategories();
-    //   $classifications = $this->ClassificationRepo->getAllClassifications();
-    //   if ($id !== null) {
-    //     $this->render('Dashboard', ['section' => 'films', 'action' => 'edit', 'film' => $film, 'categories' => $categories, 'classifications' => $classifications, 'error' => 'Tous les champs sont requis.']);
-    //     die;
-    //   } else {
-    //     $this->render('Dashboard', ['section' => 'films', 'action' => 'new', 'film' => $film, 'categories' => $categories, 'classifications' => $classifications, 'error' => 'Tous les champs sont requis.']);
-    //     die;
-    //   }
-    // }
-
-//   }
-
-//   public function delete($id)
-//   {
-//     $this->FilmRepo->deleteThisFilm($id);
-//     $films = $this->FilmRepo->getAllFilms();
-//     $this->render("Dashboard", ['section' => 'films', 'films' => $films]);
-//   }
-// }

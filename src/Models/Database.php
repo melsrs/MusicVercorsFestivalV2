@@ -77,7 +77,7 @@ final class Database
   {
     $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' like \'%ver_reservation%\'')->fetch();
 
-    if ($existant !== false && $existant[0] == PREFIXE . "ver_reservation") {
+    if ($existant !== false && $existant[0] == PREFIXE . "reservation") {
       return true;
     } else {
       return false;
