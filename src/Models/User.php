@@ -27,11 +27,9 @@ class User {
     /**
      * Set the value of id_user
      */
-    public function setIdUser($id_user): self
+    public function setIdUser($id_user)
     {
         $this->id_user = $id_user;
-
-        return $this;
     }
 
     /**
@@ -45,11 +43,9 @@ class User {
     /**
      * Set the value of nom
      */
-    public function setNom($nom): self
+    public function setNom($nom)
     {
         $this->nom = $nom;
-
-        return $this;
     }
 
     /**
@@ -63,11 +59,9 @@ class User {
     /**
      * Set the value of prenom
      */
-    public function setPrenom($prenom): self
+    public function setPrenom($prenom): void
     {
         $this->prenom = $prenom;
-
-        return $this;
     }
 
     /**
@@ -81,11 +75,10 @@ class User {
     /**
      * Set the value of email
      */
-    public function setEmail($email): self
+    public function setEmail($email): void
     {
         $this->email = $email;
 
-        return $this;
     }
 
     /**
@@ -99,11 +92,10 @@ class User {
     /**
      * Set the value of telephone
      */
-    public function setTelephone($telephone): self
+    public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
 
-        return $this;
     }
 
     /**
@@ -117,11 +109,10 @@ class User {
     /**
      * Set the value of adresse
      */
-    public function setAdresse($adresse): self
+    public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
 
-        return $this;
     }
 
     /**
@@ -135,11 +126,10 @@ class User {
     /**
      * Set the value of mdp
      */
-    public function setMdp($mdp): self
+    public function setMdp($mdp)
     {
         $this->mdp = $mdp;
 
-        return $this;
     }
 
     /**
@@ -153,10 +143,8 @@ class User {
     /**
      * Set the value of RGPD
      */
-    public function setRGPD($RGPD): self
+    public function setRGPD($RGPD)
     {
         $this->RGPD = $RGPD;
-
-        return $this;
     }
 }

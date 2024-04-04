@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <header>
-        <img src="<?= HOME_URL ?>assets/images/vercorsLogo.png" id="logo" alt="Vercors_Music_Festival_Logo" onclick="location.href='./index.php'">
+<header>
+    <img src="<?= HOME_URL ?>assets/images/vercorsLogo.png" id="logo" alt="Vercors_Music_Festival_Logo" onclick="location.href='<?= HOME_URL ?>'">
 
         <?php
 

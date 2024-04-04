@@ -2,7 +2,7 @@
 
 namespace src\Models; 
 
-use src\Services\Hydratation;
+// use src\Services\Hydratation;
 
 class Reservation {
     private $id_reservation; 
@@ -10,7 +10,15 @@ class Reservation {
     private $prix_total; 
     private $id_user;
 
-    use Hydratation;
+    // use Hydratation;
+
+    public function __construct($id_reservation, $nombre_resa, $prix_total, $id_user)
+    {
+        $this->id_reservation = $id_reservation;
+        $this->nombre_resa = $nombre_resa;
+        $this->prix_total = $prix_total;
+        $this->id_user = $id_user;
+    }
 
     /**
      * Get the value of id_reservation
@@ -20,19 +28,12 @@ class Reservation {
         return $this->id_reservation;
     }
 
-    /**
-     * Set the value of id_reservation
-     */
-    public function setIdReservation($id_reservation): self
-    {
+    public function setIdReservation($id_reservation) {
         $this->id_reservation = $id_reservation;
-
-        return $this;
     }
 
-    /**
-     * Get the value of nombre_resa
-     */
+ 
+
     public function getNombreResa()
     {
         return $this->nombre_resa;
@@ -41,11 +42,9 @@ class Reservation {
     /**
      * Set the value of nombre_resa
      */
-    public function setNombreResa($nombre_resa): self
+    public function setNombreResa($nombre_resa)
     {
         $this->nombre_resa = $nombre_resa;
-
-        return $this;
     }
 
     /**
@@ -59,11 +58,9 @@ class Reservation {
     /**
      * Set the value of prix_total
      */
-    public function setPrixTotal($prix_total): self
+    public function setPrixTotal($prix_total)
     {
         $this->prix_total = $prix_total;
-
-        return $this;
     }
 
     /**
@@ -77,11 +74,19 @@ class Reservation {
     /**
      * Set the value of id_user
      */
-    public function setIdUser($id_user): self
+    public function setIdUser($id_user)
     {
         $this->id_user = $id_user;
+    }
 
-        return $this;
+    public function toAssociativeArray()
+    {
+        return [
+            "id_reservation" => $this->id_reservation,
+            "nombre_resa" => $this->nombre_resa,
+            "prix_total" => $this->prix_total,
+            "id_user" => $this->id_user,
+        ];
     }
 }
 
