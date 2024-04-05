@@ -9,8 +9,11 @@ define('ERROR_ADDRESS', 6);
 define('ERROR_DB', 20);
 define('ERROR_PASSWORD', 21);
 
-
-
+// define('DB_HOST', 'localhost');
+// define('DB_NAME', 'my_webapp__10');
+// define('DB_USER', 'my_webapp__10');
+// define('DB_PWD', 'yUOT3xNoNRDKFrbMofOO6n5tTHOLip');
+// define('PREFIXE', 'ver_');
 
 
 define('DB_HOST', 'localhost');
@@ -22,4 +25,4 @@ define('PREFIXE', 'ver_');
 // Ne pas toucher :
 
 define('DB_INITIALIZED', TRUE);
-define('HOME_URL', '/');
+define('HOME_URL', '/melissa/MusicVercorsFestivalV2/public');
