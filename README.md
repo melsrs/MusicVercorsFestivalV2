@@ -1,22 +1,39 @@
-# Billetterie pour le Vercors Music Festival
+# Billetterie pour le Vercors Music Festival Version 2
+Vous êtes donc chargé de développer la version 2 du système de réservation, avec une vraie base de données relationnelle. Vous créerez la base de données résultant de votre MCD, qui remplacera le CSV utilisé jusque-là.
 
-Le site permet de remplir un formulaire et d'enregistrer sa réservation dans un fichier CSV. Puis d'accèder à un tableau de bord avec un mot de passe administrateur qui permet de voir la liste des réservations.
+### Livrable:
+Vous serez évalués sur la cohérence du MCD.  
+Vous serez également évalués sur l'application d'un Git flow dans votre démarche de versioning.  
+Des injections SQL pourraient être tentées lors de la présentation et vous devrez donc préparer votre application à cela.  
+De même, le hachage des mots de passe et la conservation de la date d'acceptation des RGPD devront être appliqués.  
 
-Les thèmes abordés étaient la gestion de session, l'écriture dans un fichier .CSV. Mais aussi la vérification et "sanitization" des données entrées par l'utilisateur, dans un premier temps côté front en Javascript avant l'envoie du formulaire puis dans un second temps, côté back avec des filtres PHP. En faisant attention à la "separation of concern" et en prenant soin de donner un feedback en temps réel à l'utilisateur pour l'accompagner pendant sa réservation.
+Vous devrez réaliser un MCD cohérent pour la réservation (par exemple : existe-t-il des tables annexes comme catégorie, jours de festival, activités, etc.). 
 
-## Contexte du projet
-En tant que developpeur full stack, vous utiliserez le HTML fourni en lui ajoutant de JS et du CSS, puis vous réaliserez le traitement et l'enregistrement des données en back.
+Vous pouvez maquetter tout ou une partie des éventuelles nouvelles pages de l'application.  
+Votre application est protégée contre les injections SQL.  
+Un email devra être envoyé au client à chaque réservation. Le mot de passe est hashé, et la date d'acceptation des RGPD se remplit avec la date du jour lors de l'inscription.  
+Votre application respecte le pattern MVC et vos fichiers de code non publics ne sont pas visibles grâce au fichier .htaccess.  
+Un administrateur peut voir toutes les réservations, modifier ou supprimer une réservation. 
+Les visiteurs peuvent consulter uniquement leurs réservations.
 
-### COTÉ FRONT
+Vous respectez le Gitflow suivant :  
+Une branche main qui contient la version stable en ligne.  
+Une branche de dev qui contient votre dernière feature testée par vous, et qui va être testé par votre binôme avant merge sur la branche main.  
+Une branche par feature.  
 
-Vous devez mettre en forme et animer les sections, pour les faire apparaitre au clic sur suivant.
-Vous devrez vérifier la valeur des champs avant soumission, animer les transitions des questions, ...
-Faire une page admin, depuis laquelle on pourra voir la liste de toutes les réservations. Pour y accéder, il suffira de rentrer le bon mot de passe.
-​
+### INSTALLATION  
+**Le fichier config se trouve à la racine du projet.**  
+Lors de l'installation en production, veuillez renseigner dans le fichier config.php les bonnes informations relatives à la base de données si vous utiliser la BDD en local. 
 
-### COTÉ BACK
+Il se trouve aussi en commentaires ou vise/versa les informations de la BDD pour le serveur simplon.
 
-Vous recevez les données en post, vous devez les analyser avant toute utilisation en back (sécurité, formatage, ...)
-Si le formulaire n'est pas complet, on le renvoie, avec une erreur.
-Vous traiterez les données reçues, et lorsque tout le formulaire sera rempli et soumis, alors vous l'enregistrerez dans un fichier CSV.
-Une fois que tout est validé, vous renvoyez à l'utilisateur un message récapitulatif avec ses informations choisies, et le total du prix à payer.
+### MIGRATION
+Le fichier script SQL est stocké dans le dossier Migration.
+
+### VERSIONS
+Le programme a été conçu avec:  
+PHP 8.2.13  
+MySQL 8.2.0 
+
+### Fichiers:
+Le fichier jpg du MCD se trouve dans le dossier /public/assets/images/MCDVercorsFestivalImage.jpg
