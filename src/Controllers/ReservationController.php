@@ -62,10 +62,6 @@ class ReservationController
 //         var_dump('hello');
 //     }
 // }
-    
-
-
-
       
         foreach ($data as $key => $value) {
             // var_dump($key);

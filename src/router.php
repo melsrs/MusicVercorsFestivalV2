@@ -45,7 +45,6 @@ $routeComposee = Routing::routeComposee($route);
         //     $data = $_POST;
         //     
             $ReservationController->save($_POST);
-            echo'je suis dans dashboard';
             header('location: '.HOME_URL.'dashboard');
 
 
